@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff0000, #008000); /* Gradient từ đỏ sang xanh lá cây */
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden; /* Ngăn chặn thanh cuộn */
+}
+
+header {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+}
+
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 100px 20px 20px;
+    height: calc(100vh - 80px);
+}
+
+.intro-text {
+    flex: 1;
+    text-align: left;
+    opacity: 0; /* Bắt đầu với độ mờ 0 */
+    transform: translateY(20px); /* Bắt đầu từ dưới */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Thay đổi độ mờ và vị trí */
+}
+
+.intro-text.visible {
+    opacity: 1; /* Hiện lên */
+    transform: translateY(0); /* Trở về vị trí ban đầu */
+}
+
+.intro h2 {
+    animation: blink 1.5s infinite; /* Hiệu ứng nhấp nháy cho h2 */
+}
+
+.intro h3 {
+    margin-top: 10px;
+    font-size: 34px;
+}
+
+.intro p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    margin-right: 15px;
+    font-size: 28px;
+    color: #ffff00;
+    text-decoration: none;
+    transition: color 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+}
+
+.social-links a:hover {
+    color: #ffcc00;
+}
+
+.avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    margin-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 100%;
+}
+
+.content-section {
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Thêm hiệu ứng chuyển tiếp */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Hiệu ứng tuyết rơi */
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Để không ảnh hưởng đến các phần tử khác */
+    background: url('path/to/snowflake-image.png') repeat; /* Thay thế bằng đường dẫn đến hình ảnh bông tuyết */
+    opacity: 0.5;
+    animation: snowfall 10s linear infinite; /* Thay đổi thời gian nếu cần */
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Media Queries cho responsive design */
+@media (max-width: 600px) {
+    .intro {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar {
+        margin: 20px 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
